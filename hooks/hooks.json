@@ -1,0 +1,17 @@
+{
+  "description": "Session automation for Enterpret Customer Insights plugin",
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash ${CLAUDE_PLUGIN_ROOT}/hooks/scripts/session-init.sh",
+            "timeout": 15
+          }
+        ]
+      }
+    ]
+  }
+}

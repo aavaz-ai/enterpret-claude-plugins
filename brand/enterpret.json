@@ -1,0 +1,65 @@
+{
+  "name": "{ORG_NAME}",
+  "description": "Enterpret default brand tokens — used when no custom.json override exists",
+  "colors": {
+    "primary": "#1B2A4A",
+    "accent": "#2AABB3",
+    "accentLight": "#E0F5F7",
+    "text": "#1A1A1A",
+    "textSecondary": "#666666",
+    "border": "#E0E0E0",
+    "headerBg": "#1B2A4A",
+    "headerText": "#FFFFFF",
+    "tableBorderColor": "CCCCCC",
+    "tableHeaderBg": "1B2A4A",
+    "tableHeaderText": "FFFFFF",
+    "tableAltRowBg": "F5F5F5",
+    "sentimentPositive": "#2B8A3E",
+    "sentimentNegative": "#D32F2F",
+    "sentimentNeutral": "#757575"
+  },
+  "typography": {
+    "fontFamily": "Arial",
+    "headingFont": "Arial",
+    "sizes": {
+      "title": 36,
+      "h1": 32,
+      "h2": 28,
+      "h3": 24,
+      "body": 22,
+      "small": 18,
+      "caption": 16
+    }
+  },
+  "spacing": {
+    "sectionGap": 360,
+    "paragraphAfter": 120,
+    "tableMargin": {
+      "top": 80,
+      "bottom": 80,
+      "left": 120,
+      "right": 120
+    }
+  },
+  "footer": {
+    "text": "Powered by Enterpret | via Claude Code",
+    "enterpretUrl": "https://enterpret.com",
+    "dashboardUrl": "https://dashboard.enterpret.com/{ORG_SLUG}/",
+    "logo": {
+      "file": "brand/enterpret-wordmark.png",
+      "width": 60,
+      "height": 12
+    }
+  },
+  "chart": {
+    "sentimentColors": { "Positive": "#2B8A3E", "Negative": "#D32F2F", "Neutral": "#757575" },
+    "categorical": ["#1B2A4A", "#2AABB3", "#4A90D9", "#7C4DFF", "#FF6D00", "#00897B"],
+    "wow": { "current": "#1B2A4A", "previous": "#CCCCCC" },
+    "render": { "width": 720, "height": 400, "devicePixelRatio": 2 },
+    "embed": { "width": 480, "height": 267 }
+  },
+  "citations": {
+    "baseUrl": "https://dashboard.enterpret.com/{ORG_SLUG}/record/",
+    "linkColor": "2AABB3"
+  }
+}

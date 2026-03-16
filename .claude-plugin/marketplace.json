@@ -1,0 +1,13 @@
+{
+  "name": "enterpret-plugins",
+  "owner": {
+    "name": "Enterpret"
+  },
+  "plugins": [
+    {
+      "name": "enterpret-customer-insights",
+      "source": ".",
+      "description": "Customer intelligence powered by Enterpret's Wisdom Knowledge Graph. Query feedback, analyze patterns, investigate root causes, and generate branded reports."
+    }
+  ]
+}
