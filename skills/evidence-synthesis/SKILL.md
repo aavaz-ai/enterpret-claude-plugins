@@ -98,8 +98,8 @@ Different commands need different evidence density:
 |---------|---------------|-------------|-------------------|
 | Quick lookup (`/find`) | Concise summary — volume, sentiment, top quotes | 2-3 | One-line scope |
 | Deep analysis (`/analyze`) | Full block — this IS the deliverable | 3-5 | Full section |
-| Root cause (`/rootcause`) | Minimal — action-oriented | 1-2 most severe | Blast radius caveat |
-| Account/weekly brief (`/brief`) | Their pain vs. market pattern or headlines | 2-3 | Completeness caveat |
+| Root cause (`/analyze --rootcause`) | Minimal — action-oriented | 1-2 most severe | Blast radius caveat |
+| Report — weekly/account (`/report`) | Their pain vs. market pattern or headlines | 2-3 | Completeness caveat |
 
 ## Narrative Structure
 

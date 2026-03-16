@@ -1,37 +1,69 @@
 {
   "name": "{ORG_NAME}",
-  "description": "Enterpret default brand tokens — used when no custom.json override exists",
+  "description": "Enterpret Chorus brand tokens — aligned to the Chorus design system (enterpret-chorus.vercel.app)",
+  "designSystem": "Chorus",
   "colors": {
-    "primary": "#1B2A4A",
-    "accent": "#2AABB3",
-    "accentLight": "#E0F5F7",
-    "text": "#1A1A1A",
-    "textSecondary": "#666666",
-    "border": "#E0E0E0",
-    "headerBg": "#1B2A4A",
+    "primary": "#0F6773",
+    "primaryDark": "#0C5260",
+    "primaryLight": "#E6F3F5",
+    "accent": "#2A9EAD",
+    "text": "#1C1A18",
+    "textSecondary": "#7A756F",
+    "textTertiary": "#A09B95",
+    "background": "#FFFFFF",
+    "backgroundSubtle": "#F9F8F7",
+    "border": "#E2DFDB",
+    "borderSubtle": "rgba(0,0,0,0.06)",
+    "headerBg": "#0F6773",
     "headerText": "#FFFFFF",
-    "tableBorderColor": "CCCCCC",
-    "tableHeaderBg": "1B2A4A",
-    "tableHeaderText": "FFFFFF",
-    "tableAltRowBg": "F5F5F5",
-    "sentimentPositive": "#2B8A3E",
-    "sentimentNegative": "#D32F2F",
-    "sentimentNeutral": "#757575"
+    "tableBorderColor": "#E2DFDB",
+    "tableHeaderBg": "#0F6773",
+    "tableHeaderText": "#FFFFFF",
+    "tableAltRowBg": "#F9F8F7",
+    "sentimentPositive": "#67BB98",
+    "sentimentNegative": "#F99294",
+    "sentimentNeutral": "#9495A2"
+  },
+  "neutrals": {
+    "n100": "#F9F8F7",
+    "n200": "#F0EEEC",
+    "n300": "#E2DFDB",
+    "n400": "#C8C4BF",
+    "n500": "#A09B95",
+    "n600": "#7A756F",
+    "n700": "#56524D",
+    "n800": "#363330",
+    "n900": "#1C1A18"
   },
   "typography": {
-    "fontFamily": "Arial",
-    "headingFont": "Arial",
+    "fontFamily": "Geist",
+    "headingFont": "Geist",
+    "monoFont": "Geist Mono",
+    "fallbackFontFamily": "Arial",
     "sizes": {
-      "title": 36,
-      "h1": 32,
+      "title": 48,
+      "h1": 36,
       "h2": 28,
-      "h3": 24,
-      "body": 22,
-      "small": 18,
-      "caption": 16
+      "h3": 20,
+      "body": 15,
+      "small": 14,
+      "caption": 11,
+      "label": 11
+    },
+    "weights": {
+      "black": 900,
+      "bold": 700,
+      "medium": 500,
+      "regular": 400,
+      "light": 300
+    },
+    "letterSpacing": {
+      "display": "-0.025em",
+      "label": "0.08em"
     }
   },
   "spacing": {
+    "baseUnit": 4,
     "sectionGap": 360,
     "paragraphAfter": 120,
     "tableMargin": {
@@ -40,6 +72,11 @@
       "left": 120,
       "right": 120
     }
+  },
+  "borderRadius": {
+    "default": 4,
+    "card": 8,
+    "pill": 9999
   },
   "footer": {
     "text": "Powered by Enterpret | via Claude Code",
@@ -52,14 +89,32 @@
     }
   },
   "chart": {
-    "sentimentColors": { "Positive": "#2B8A3E", "Negative": "#D32F2F", "Neutral": "#757575" },
-    "categorical": ["#1B2A4A", "#2AABB3", "#4A90D9", "#7C4DFF", "#FF6D00", "#00897B"],
-    "wow": { "current": "#1B2A4A", "previous": "#CCCCCC" },
+    "sentimentColors": {
+      "Positive": "#67BB98",
+      "Negative": "#F99294",
+      "Neutral": "#9495A2"
+    },
+    "categorical": [
+      "#0F6773",
+      "#2A9EAD",
+      "#86BDE1",
+      "#A085B8",
+      "#EB994D",
+      "#67BB98",
+      "#F99294",
+      "#BCC064",
+      "#FFD586",
+      "#BAE1D0"
+    ],
+    "wow": {
+      "current": "#0F6773",
+      "previous": "#C8C4BF"
+    },
     "render": { "width": 720, "height": 400, "devicePixelRatio": 2 },
     "embed": { "width": 480, "height": 267 }
   },
   "citations": {
     "baseUrl": "https://dashboard.enterpret.com/{ORG_SLUG}/record/",
-    "linkColor": "2AABB3"
+    "linkColor": "#0F6773"
   }
 }

@@ -21,7 +21,7 @@ Quick lookup of customer feedback on a topic. Fast, focused, 1-2 queries max.
 ```cypher
 MATCH (nli:NaturalLanguageInteraction)-[:SUMMARIZED_BY]->(fi:FeedbackInsight)-[:HAS_SENTIMENT]->(sp:SentimentPrediction)
 MATCH (fi)-[:HAS_TAGS]->(cft:CustomerFeedbackTags)-[:HAS_THEME]->(t:Theme)
-WHERE t.name = "{EXACT_THEME_NAME}"
+WHERE t.name CONTAINS "{THEME_NAME}"
   AND nli.record_timestamp >= "{START_DATE}" AND nli.record_timestamp < "{END_DATE}"
 RETURN t.name AS theme, sp.label AS sentiment, COUNT(DISTINCT fi.feedback_record_id) AS volume
 ORDER BY volume DESC
@@ -30,11 +30,13 @@ LIMIT 20
 
 Use `execute_cypher_query` with parameter name `cypher_query`. Default window: 7 days if user said "last week", otherwise 30 days. Compute ISO dates.
 
+**Note:** Use `CONTAINS` (not `=`) for theme matching to handle partial name matches consistently across all commands. The `search_knowledge_graph` step already validates theme names, so CONTAINS catches slight variations without false positives.
+
 **Step 3:** Run this query for quotes:
 
 ```cypher
 MATCH (nli:NaturalLanguageInteraction)-[:SUMMARIZED_BY]->(fi:FeedbackInsight)-[:HAS_TAGS]->(cft:CustomerFeedbackTags)-[:HAS_THEME]->(t:Theme)
-WHERE t.name = "{EXACT_THEME_NAME}"
+WHERE t.name CONTAINS "{THEME_NAME}"
   AND nli.record_timestamp >= "{START_DATE}" AND nli.record_timestamp < "{END_DATE}"
 RETURN fi.feedback_record_id AS record_id, nli.content AS verbatim, nli.record_timestamp AS date
 ORDER BY nli.record_timestamp DESC

@@ -21,11 +21,17 @@ Organization details are loaded from `context/organization.json` (created during
 - **taxonomy.l1Categories** — Top-level categories with volume
 - **taxonomy.themeCategories** — Theme types (COMPLAINT, HELP, PRAISE, IMPROVEMENT, etc.)
 
-If `context/organization.json` does not exist, load the `onboarding` skill to run auto-discovery.
+If `context/organization.json` does not exist, tell the user to run `/start` for first-time setup.
 
 ## Session Setup
 
 Run `get_organization_details` as a pre-flight check at session start. Cache the org details and schema once — never re-query per command.
+
+## User Context
+
+Check for `.claude/enterpret-customer-insights.local.md` — if it exists, parse YAML frontmatter for user preferences (`name`, `role`, `team`, `focus`, `output_style`, `brand_colors`, `company_name`, `language`).
+
+If the file does not exist, assume a **Product Manager** persona: focused on customer experience and product operations, wants structured evidence-based output, cares about CSAT/DSAT/volume trends, produces weekly VOC reports. Frame recommendations as product decisions, not abstract findings.
 
 ## Search Before Query
 
@@ -85,7 +91,7 @@ Never fabricate segment data.
 
 ## MCP Tools Available
 
-You have 4 tools from the `enterpret-wisdom-mcp` MCP server:
+You have 5 tools from the `enterpret-wisdom-mcp` MCP server:
 
 | Tool | Use For |
 |------|---------|
@@ -93,6 +99,7 @@ You have 4 tools from the `enterpret-wisdom-mcp` MCP server:
 | `get_schema` | Retrieve full KG schema (node types, relationships, properties). Call once per session. |
 | `execute_cypher_query` | Run Cypher queries against the KG. Primary data access method. |
 | `search_knowledge_graph` | Natural language search. Good for exploration, less precise than Cypher. |
+| `find_user_quote` | Direct quote retrieval by topic or user. Faster than Cypher for getting verbatim quotes. Good for evidence gathering when you need representative quotes quickly. |
 
 ## Schema Overview
 
@@ -311,28 +318,22 @@ The Wisdom MCP tool `execute_cypher_query` expects the parameter named `cypher_q
 3. Subtheme breakdown
 4. Verbatim evidence with citations
 
-### /analyze — Deep multi-query synthesis
+### /analyze — Deep multi-query synthesis (with optional --rootcause mode)
+**Standard mode (30d window):**
 1. `search_knowledge_graph` to map topic to themes
-2. Theme volume + sentiment (30d or 90d depending on scope)
+2. Theme volume + sentiment
 3. Subtheme breakdown
 4. WoW trend (two queries)
 5. Taxonomy context (L1/L2/L3 positioning)
 6. Co-occurring themes (single MATCH, two paths)
 7. Insight type distribution (COMPLAINT, IMPROVEMENT, QUESTION, PRAISE)
 8. Verbatim evidence with citations
+9. Account breadth (if available)
 
-### /rootcause — Root cause analysis, escalation triage
-1. Theme + subtheme breakdown for the target issue
-2. Cascade: co-occurring themes (single MATCH, two paths)
-3. Sentiment breakdown
-4. Account breadth (if available)
-5. Verbatim evidence with citations (5-10 per subtheme)
-6. For scan mode: sentiment crash detection, volume spikes, new themes
-
-### /brief — Weekly memo, account brief, regional digest
-1. Weekly: Big 5 scan (emerging, worsening, enterprise blockers, self-serve friction, decision)
-2. Account: Account themes, sentiment, market comparison, scalability assessment
-3. Regional: Same as weekly with COR filter
+**Rootcause mode (14d window) — same queries, different interpretation:**
+- Skip taxonomy placement, add severity assessment (P0/P1/P2) and hypothesis clustering
+- Co-occurring themes framed as "Cascade Impact"
+- Output includes root cause hypotheses and "What We DON'T Know"
 
 ### /explore — Taxonomy browsing, record retrieval
 1. L1 categories with volume counts
@@ -340,11 +341,17 @@ The Wisdom MCP tool `execute_cypher_query` expects the parameter named `cypher_q
 3. L2 → L3 + Theme drill-down with sentiment
 4. Record lookup by feedback_record_id
 
-### /report — Guided report builder
-1. Depends on archetype: Theme Deep-Dive, Sentiment Trend, Executive Summary, Custom
-2. Theme Deep-Dive: L1 → L2 → L3 drill, sentiment, evidence
-3. Sentiment Trend: Period comparison, sentiment per theme, WoW
-4. Executive Summary: Top themes, sentiment split, key movers
+### /report — All output modes (quick + branded documents)
+**Quick modes (chat output, offer doc export):**
+1. Weekly Memo: Big 5 scan (emerging, worsening, enterprise blockers, self-serve friction, decision)
+2. Account Brief: Account themes, sentiment, market comparison, scalability assessment
+3. Executive Summary: Top themes, sentiment split, key movers
+4. Regional Digest: Same as weekly with COR filter
+
+**Document modes (guided archetype → docx/pptx/html):**
+1. Theme Deep-Dive: L1 → L2 → L3 drill, sentiment, evidence
+2. Sentiment Trend: Period comparison, sentiment per theme, WoW
+3. Custom: User-defined structure
 
 ---
 
@@ -358,64 +365,11 @@ If a query fails:
 4. **Try natural language search** — `search_knowledge_graph` as fallback
 5. **Never retry the same failed query** — always fix the issue first
 
-If you get an authentication error, load the `onboarding` skill to guide the user through setup.
+If you get an authentication error, tell the user to run `/start` for setup, or contact support@enterpret.com.
 
 ---
 
 ## Reference Files
 
-For validated query patterns, see: `references/query-patterns.md`
-
----
-
-## Appendix: Common Schema Reference
-
-These properties and paths are common across Enterpret KG instances. **Always verify with `get_schema` before using** — not all instances have all of these.
-
-### Account Metadata (schema-dependent)
-```cypher
-(nli)-[:PROVIDED_BY_ACCOUNT]->(a:Account)
--- OR: (nli)-[:HAS_ACCOUNT]->(da:DerivedAccount)
-```
-
-Common account properties (verify with `get_schema`):
-- **Name:** `a.snowflake_enterpret_account_account_name` or `a.salesforce_name`
-- **Tier:** `a.snowflake_enterpret_account_account_tier`
-- **Industry:** `a.snowflake_enterpret_account_industry`
-- **ARR:** `a.salesforce_annualrevenue`
-- **CSM:** `a.snowflake_enterpret_account_csm_owner_name`
-- **Active:** `a.snowflake_enterpret_account_active_customer`
-
-### NPS Data
-NPS survey NLIs have source `snowflake-nps survey` and these properties:
-- `snowflake_nps_survey_nps_score_n` — numeric score (0-10)
-- `snowflake_nps_survey_nps_category_s` — "Promoter", "Passive", "Detractor"
-- `snowflake_nps_survey_account_name_s` — account name
-- `snowflake_nps_survey_account_tier_s` — account tier
-
-### Source Values
-`nli.source` common values: `Gong`, `intercom`, `g2`, `snowflake-nps survey`, `slack`
-
-### Work Items
-```cypher
-(t:Theme)-[:HAS_ARTEFACT_REFERENCE]->(wa:WorkItemArtefact)-[:HAS_WORK_ITEM]->(wi:WorkItem)
-```
-Properties: `wi.name`, `wi.status`, `wi.key`
-
-### Feature Requests
-```cypher
-(t:Theme)-[:HAS_FEATURE_REQUEST]->(fr:FeatureRequest)
-```
-Properties: `fr.name`, `fr.status`
-
-### Opportunity Data
-```cypher
-(nli)-[:HAS_OPPORTUNITY]->(do:DerivedOpportunity)
-```
-Properties: `do.stage`, `do.amount`
-
-### Churn Signals (Salesforce)
-- `a.salesforce_opportunities_records_stagename`
-- `a.salesforce_opportunities_records_isclosed`
-- `a.salesforce_opportunities_records_iswon`
-- `a.salesforce_opportunities_records_closed_lost_reason_c`
+- `references/query-patterns.md` — Validated Cypher query patterns (copy and adapt)
+- `references/schema-appendix.md` — Extended schema: account metadata, NPS, work items, feature requests, opportunity data, churn signals

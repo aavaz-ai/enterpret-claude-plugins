@@ -93,10 +93,10 @@ const chartColors = {
 };
 ```
 
-**Default Enterpret palette (from `brand/enterpret.json`):**
-- Categorical: `["#1B2A4A", "#2AABB3", "#4A90D9", "#7C4DFF", "#FF6D00", "#00897B"]`
-- Sentiment: Positive `#2B8A3E`, Negative `#D32F2F`, Neutral `#757575`
-- WoW: Current `#1B2A4A`, Previous `#CCCCCC`
+**Chorus design system palette (from `brand/enterpret.json`):**
+- Categorical (cross-group accents for max distinction): `["#0F6773", "#2A9EAD", "#86BDE1", "#A085B8", "#EB994D", "#67BB98", "#F99294", "#BCC064", "#FFD586", "#BAE1D0"]`
+- Sentiment: Positive `#67BB98` (Jade), Negative `#F99294` (Coral), Neutral `#9495A2` (Slate)
+- WoW: Current `#0F6773` (Teal 600), Previous `#C8C4BF` (Warm N400)
 
 ---
 

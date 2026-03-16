@@ -9,9 +9,9 @@ You are exploring your organization's **feedback taxonomy and data** — the hie
 
 ## Pre-Flight
 
-1. Check if `context/organization.json` exists. If not, load the `onboarding` skill to run auto-discovery first.
+1. Check if `context/organization.json` exists. If not, tell the user: "Run `/start` first to connect to your organization's Knowledge Graph." Stop.
 2. Call `get_organization_details` from the `enterpret-wisdom-mcp` MCP server.
-3. If it fails with an auth error, load the `onboarding` skill and stop.
+3. If it fails with an auth error, tell the user to run `/start` and stop.
 4. If successful, read `context/organization.json` for org name and L1 categories.
 
 ## Skills (reference if needed, do NOT read upfront)
@@ -95,7 +95,7 @@ LIMIT 30
 └── ...
 ```
 
-3. Say: "Want to investigate any of these themes? Try `/find [theme name]` or `/rootcause [theme name]`."
+3. Say: "Want to investigate any of these themes? Try `/find [theme name]` or `/analyze [theme name]`."
 
 ### Record Retrieval Mode
 
@@ -138,11 +138,11 @@ This command supports an interactive loop:
 - User can keep drilling down by typing category/subcategory names or numbers
 - User can go "back" to the previous level
 - User can exit with "done"
-- User can pivot to another command at any point (e.g., "investigate this" → suggest `/rootcause [theme]`)
+- User can pivot to another command at any point (e.g., "investigate this" → suggest `/analyze [theme] --rootcause`)
 
 ## Notes
 
 - This command does NOT generate a report. It's a utility for exploration and discovery.
 - Keep output clean and scannable — use tree format for hierarchy.
 - Always include volume counts to give context on relative importance.
-- Suggest next actions based on what the user finds — `/find` for quick feedback, `/rootcause` for deep analysis.
+- Suggest next actions based on what the user finds — `/find` for quick feedback, `/analyze` for deep analysis.

@@ -60,7 +60,7 @@ Ask the user (conversationally, not as a checklist):
 
 **Rules:**
 - Always run the pre-flight check first: call `get_organization_details` to verify auth
-- If auth fails, load the `onboarding` skill
+- If auth fails, tell the user to run `/start` to re-authenticate
 - Run queries sequentially, not in parallel (to handle errors gracefully)
 - Always collect `feedback_record_id` for citations
 

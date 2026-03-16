@@ -36,11 +36,11 @@ pptx.defineSlideMaster({
         fill: { color: BRAND.colors.primary }
       }
     },
-    // Footer bar
+    // Footer bar — Chorus warm neutral
     {
       rect: {
         x: 0, y: 7.0, w: 13.33, h: 0.5,
-        fill: { color: 'F5F5F5' }
+        fill: { color: 'F9F8F7' }
       }
     },
     // Footer text — left

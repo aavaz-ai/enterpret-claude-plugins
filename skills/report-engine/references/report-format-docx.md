@@ -17,22 +17,24 @@ const fs = require('fs');
 // BRAND object is resolved by report-engine SKILL.md (custom.json → enterpret.json fallback)
 // All {ORG_NAME} and {ORG_SLUG} vars are already resolved when this code runs
 
+// Chorus design system tokens — loaded from brand/enterpret.json (or custom.json override)
 const BRAND = {
   colors: {
-    primary: "1B2A4A",       // Enterpret Navy (or custom override)
-    accent: "2AABB3",        // Enterpret Teal (or custom override)
-    accentLight: "E0F5F7",
-    text: "1A1A1A",
-    textSecondary: "666666",
-    border: "CCCCCC",
-    tableHeader: "1B2A4A",
+    primary: "0F6773",       // Chorus Teal 600
+    primaryDark: "0C5260",   // Chorus Teal 700
+    primaryLight: "E6F3F5",  // Chorus Teal 100
+    accent: "2A9EAD",        // Chorus accent teal
+    text: "1C1A18",          // Warm neutral N900
+    textSecondary: "7A756F", // Warm neutral N600
+    border: "E2DFDB",        // Warm neutral N300
+    tableHeader: "0F6773",   // Teal 600
     tableHeaderText: "FFFFFF",
-    altRow: "F5F5F5",
-    positive: "2B8A3E",
-    negative: "D32F2F",
-    neutral: "757575"
+    altRow: "F9F8F7",        // Warm neutral N100
+    positive: "67BB98",      // Jade (Chorus botanical)
+    negative: "F99294",      // Coral (Chorus warm)
+    neutral: "9495A2"        // Slate (Chorus cool)
   },
-  font: "Arial",
+  font: "Arial",             // Geist not available in docx; Arial as fallback
   orgName: "Acme Corp",           // from context/organization.json
   citationBaseUrl: "https://dashboard.enterpret.com/acme-corp/record/"
 };

@@ -3,7 +3,7 @@ name: wisdom-expert
 description: "Use this agent when the user asks about customer feedback, sentiment, themes, or what customers are saying — without using a specific slash command. Expert in the Wisdom KG schema, Cypher query patterns, metadata taxonomy, and citation formatting."
 model: inherit
 color: cyan
-tools: ["Read", "Write", "Grep", "Glob", "Bash"]
+tools: ["Read", "Write", "Grep", "Glob", "Bash", "mcp__claude_ai_Enterpret_Wisdom__get_organization_details", "mcp__claude_ai_Enterpret_Wisdom__get_schema", "mcp__claude_ai_Enterpret_Wisdom__execute_cypher_query", "mcp__claude_ai_Enterpret_Wisdom__search_knowledge_graph", "mcp__claude_ai_Enterpret_Wisdom__find_user_quote"]
 ---
 
 <example>
@@ -58,6 +58,7 @@ The `enterpret-wisdom-mcp` server provides:
 - `get_schema` — retrieve full KG schema (call once per session)
 - `execute_cypher_query` — run Cypher queries (parameter: `cypher_query`)
 - `search_knowledge_graph` — natural language search for themes
+- `find_user_quote` — direct quote retrieval by topic or user
 
 **Output Format:**
 - Executive summary (2-3 bullets)
