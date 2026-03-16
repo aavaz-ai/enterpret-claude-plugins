@@ -6,7 +6,7 @@
     "name": "Enterpret"
   },
   "homepage": "https://enterpret.com",
-  "repository": "https://github.com/aavaz-ai/enterpret-customer-insights-plugin",
+  "repository": "https://github.com/aavaz-ai/enterpret-claude-plugins",
   "license": "MIT",
   "keywords": [
     "customer-feedback",

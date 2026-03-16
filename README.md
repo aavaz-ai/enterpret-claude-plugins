@@ -11,16 +11,23 @@ Query your Wisdom Knowledge Graph, analyze feedback patterns, investigate root c
 
 ## Install
 
-### Individual User
+### Claude Code (CLI)
 
 ```bash
-claude plugin marketplace add aavaz-ai/enterpret-customer-insights-plugin
+claude plugin marketplace add aavaz-ai/enterpret-claude-plugins
 claude plugin install enterpret-customer-insights@enterpret-plugins
 ```
 
+### Claude Cowork
+
+1. Open the **Customize** menu (left sidebar)
+2. Click **Browse plugins**
+3. Search for "Enterpret Customer Insights"
+4. Click **Install**
+
 ### Organization-Wide (Claude Admins)
 
-Deploy the plugin to every user in your Claude organization automatically. See the **[Admin Deployment Guide](ADMIN-GUIDE.md)** for step-by-step instructions.
+Deploy the plugin to every user in your Claude organization — across both Claude Code and Cowork. See the **[Admin Deployment Guide](ADMIN-GUIDE.md)** for step-by-step instructions.
 
 ## Quick Start
 

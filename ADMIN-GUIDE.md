@@ -1,6 +1,6 @@
 # Admin Deployment Guide
 
-Deploy the Enterpret Customer Insights plugin to every Claude user in your organization.
+Deploy the Enterpret Customer Insights plugin to every Claude user in your organization — works across both Claude Code (CLI) and Claude Cowork.
 
 ## Prerequisites
 
@@ -17,7 +17,7 @@ Add the following to your organization's managed `.claude/settings.json`. This a
     "enterpret-plugins": {
       "source": {
         "source": "github",
-        "repo": "aavaz-ai/enterpret-customer-insights-plugin"
+        "repo": "aavaz-ai/enterpret-claude-plugins"
       }
     }
   },
@@ -34,17 +34,17 @@ Add the following to your organization's managed `.claude/settings.json`. This a
 
 ## Option B: Manual Install (Individual Teams)
 
-Team members can install the plugin themselves:
+**Claude Code (CLI):**
 
 ```bash
-claude plugin marketplace add aavaz-ai/enterpret-customer-insights-plugin
+claude plugin marketplace add aavaz-ai/enterpret-claude-plugins
 claude plugin install enterpret-customer-insights@enterpret-plugins
 ```
 
-Or via the interactive UI:
+**Claude Cowork:**
 
-1. Type `/plugin` in Claude
-2. Go to **Discover** tab
+1. Open the **Customize** menu (left sidebar)
+2. Click **Browse plugins**
 3. Search for "Enterpret Customer Insights"
 4. Click **Install**
 
