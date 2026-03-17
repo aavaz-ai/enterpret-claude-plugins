@@ -1,16 +1,20 @@
 {
-  "name": "Enterpret Plugins",
-  "description": "Official Enterpret plugins for Claude — customer intelligence, feedback analysis, and branded reporting powered by the Wisdom Knowledge Graph.",
-  "author": {
-    "name": "Enterpret"
+  "name": "enterpret-claude-plugins",
+  "owner": {
+    "name": "Enterpret",
+    "email": "support@enterpret.com"
   },
-  "homepage": "https://enterpret.com",
   "plugins": [
     {
       "name": "enterpret-customer-insights",
+      "source": "./",
       "description": "Customer intelligence powered by Enterpret's Wisdom Knowledge Graph. Query feedback, analyze patterns, investigate root causes, and generate branded reports.",
       "version": "6.0.0",
-      "path": "."
+      "keywords": ["customer-feedback", "voice-of-customer", "product-management", "enterpret"]
     }
-  ]
+  ],
+  "metadata": {
+    "description": "Official Enterpret plugins for Claude — customer intelligence, feedback analysis, and branded reporting.",
+    "version": "1.0.0"
+  }
 }
