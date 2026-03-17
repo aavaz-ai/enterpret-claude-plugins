@@ -2,11 +2,33 @@
 
 Customer intelligence powered by Enterpret's Wisdom Knowledge Graph. Query feedback, analyze patterns, investigate root causes, and generate branded reports — all from Claude.
 
-## Quick Start
+## Install
 
-1. Install the plugin in Claude Cowork
-2. Run `/start` to connect and set up your profile
-3. Try `/find [topic]` to see what customers are saying
+### Claude Code CLI
+
+```bash
+# Step 1 — Add the marketplace (one-time)
+claude plugin marketplace add https://github.com/aavaz-ai/enterpret-claude-plugins
+
+# Step 2 — Install the plugin
+claude plugin install enterpret-customer-insights@enterpret-claude-plugins
+```
+
+### Claude CoWork (Desktop App)
+
+1. Open Settings > Plugins > Add Marketplace
+2. Paste: `https://github.com/aavaz-ai/enterpret-claude-plugins`
+3. Browse the marketplace and install **Enterpret Customer Insights**
+
+### First-Time Setup
+
+After installing, start a new Claude session and run:
+
+```
+/start
+```
+
+This connects to Enterpret, discovers your organization's data, and sets up your profile.
 
 ## Commands
 
@@ -22,7 +44,7 @@ Customer intelligence powered by Enterpret's Wisdom Knowledge Graph. Query feedb
 
 This plugin connects to your organization's **Wisdom Knowledge Graph** via the Enterpret MCP server. When you run `/start`, it:
 
-1. Authenticates via OAuth (Cowork handles this automatically)
+1. Authenticates via OAuth (CoWork handles this automatically)
 2. Discovers your organization's taxonomy and feedback structure
 3. Saves context for all future commands
 
@@ -67,6 +89,11 @@ Edit this file to customize report formatting, audience targeting, and brand col
 ### Brand Assets
 
 Default brand tokens are in `brand/enterpret.json`. To customize, create `brand/custom.json` with your overrides.
+
+## Requirements
+
+- Claude Code CLI (latest) or Claude CoWork desktop app
+- Enterpret account with Wisdom Knowledge Graph access
 
 ## Support
 
