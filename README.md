@@ -1,6 +1,6 @@
 # Enterpret Customer Insights
 
-Customer intelligence powered by Enterpret's Wisdom Knowledge Graph. Query feedback, analyze patterns, investigate root causes, and generate branded reports — all from Claude.
+Customer intelligence powered by Enterpret's Wisdom Knowledge Graph. Query feedback, analyze patterns, investigate root causes, generate branded reports, and deliver scheduled feedback digests — all from Claude.
 
 ## Install
 
@@ -39,6 +39,7 @@ This connects to Enterpret, discovers your organization's data, and sets up your
 | `/analyze [topic]` | Deep analysis — trends, patterns, root causes (`--rootcause` for severity triage) |
 | `/explore [category?]` | Browse your feedback taxonomy interactively |
 | `/report [mode?]` | Generate output — weekly memo, account brief, exec summary, or branded doc |
+| `/digest [setup\|run\|preview\|config]` | Build a recurring feedback digest — choose topics, preview, deliver to Slack/email/CoWork, and schedule |
 
 ## How It Works
 
@@ -57,6 +58,7 @@ The plugin includes specialized knowledge modules:
 - **wisdom-kg** — KG schema, Cypher patterns, query validation, user context
 - **evidence-synthesis** — Turning raw data into actionable narrative
 - **report-engine** — Branded report generation (docx/pptx/html)
+- **wisdom-slack-digest** — Scheduled feedback digests delivered to Slack
 
 ## Agents
 
@@ -89,6 +91,19 @@ Edit this file to customize report formatting, audience targeting, and brand col
 ### Brand Assets
 
 Default brand tokens are in `brand/enterpret.json`. To customize, create `brand/custom.json` with your overrides.
+
+### Feedback Digest
+
+The `/digest` command builds a recurring customer feedback digest and delivers it to your team's channel. Setup is interactive — Claude walks you through:
+
+1. **What to track** — pick topics based on your goals, not raw taxonomy browsing
+2. **Preview** — see the formatted digest before sending anything
+3. **Where to deliver** — Slack, email, or CoWork (auto-detects available connectors)
+4. **Schedule** — set up recurring delivery via CoWork's scheduler
+
+Digest configuration is saved to `context/digest-config.md`. Edit it anytime with `/digest config` or re-run `/digest setup` to start fresh.
+
+The digest uses a three-tier Slack architecture: a scannable headline in the channel (severity indicators + one-line insights), detailed topic cards in the thread (analysis + quote + action), and optional raw data for data-oriented readers.
 
 ## Requirements
 
