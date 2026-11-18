@@ -9,10 +9,9 @@ You are exploring your organization's **feedback taxonomy and data** — the hie
 
 ## Pre-Flight
 
-1. Check if `context/organization.json` exists. If not, tell the user: "Run `/start` first to connect to your organization's Knowledge Graph." Stop.
-2. Call `get_organization_details` from the `enterpret-wisdom-mcp` MCP server.
-3. If it fails with an auth error, tell the user to run `/start` and stop.
-4. If successful, read `context/organization.json` for org name and L1 categories.
+1. Call `get_organization_details` from the `enterpret-wisdom-mcp` MCP server.
+2. If it fails with an auth error, tell the user to run `/start` and stop.
+3. If successful, read `context/organization.json` for org name and L1 categories. If it doesn't exist, use the `name` from step 1, use its `dashboard_link` followed by `record/` as the citation base URL, and query the L1 categories as shown below. Do not ask the user to run `/start` for this.
 
 ## Skills (reference if needed, do NOT read upfront)
 

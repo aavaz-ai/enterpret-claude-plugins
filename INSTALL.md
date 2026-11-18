@@ -20,7 +20,7 @@ claude plugin marketplace add https://github.com/aavaz-ai/enterpret-claude-plugi
 claude plugin install enterpret-customer-insights@enterpret-claude-plugins
 ```
 
-### Step 3 — Start a new Claude session and run setup
+### Step 3 — Start a new Claude session (optional setup)
 
 ```bash
 claude
@@ -32,7 +32,7 @@ Once inside Claude, type:
 /enterpret-customer-insights:start
 ```
 
-You'll be prompted to authenticate via your browser — log in with your Enterpret account. The setup wizard connects to your organization's Knowledge Graph, discovers your data, and configures your profile. Takes about 2 minutes.
+You'll be prompted to authenticate via your browser — log in with your Enterpret account. Setup is optional: commands work without it. The setup wizard connects to your organization's Knowledge Graph, discovers your data, and configures your profile. Takes about 2 minutes.
 
 > **Note:** When Claude asks to approve the `enterpret-wisdom-mcp` MCP server (connecting to `wisdom-api.enterpret.com`), select **Yes** — this is the connection to your Wisdom Knowledge Graph.
 
@@ -43,7 +43,7 @@ You'll be prompted to authenticate via your browser — log in with your Enterpr
 1. Open **Settings** > **Plugins** > **Add Marketplace**
 2. Paste: `https://github.com/aavaz-ai/enterpret-claude-plugins`
 3. Browse the marketplace and install **Enterpret Customer Insights**
-4. Start a new session and type `/enterpret-customer-insights:start`
+4. Start a new session. Optionally type `/enterpret-customer-insights:start` to set up your profile
 
 Authentication happens automatically via OAuth — you'll be prompted to log in through your browser on first use.
 

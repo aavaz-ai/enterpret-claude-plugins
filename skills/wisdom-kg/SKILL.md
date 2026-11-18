@@ -21,11 +21,11 @@ Organization details are loaded from `context/organization.json` (created during
 - **taxonomy.l1Categories** — Top-level categories with volume
 - **taxonomy.themeCategories** — Theme types (COMPLAINT, HELP, PRAISE, IMPROVEMENT, etc.)
 
-If `context/organization.json` does not exist, tell the user to run `/start` for first-time setup.
+If `context/organization.json` does not exist (Cowork starts every chat without it), use `get_organization_details`: its `name` and `slug`, its `dashboard_link` as `dashboardUrl`, and `dashboard_link` followed by `record/` as `citationBaseUrl`. Query the L1 categories when a task needs them. Never ask the user to run `/start` just to load this: `/start` is optional and saves a profile.
 
 ## Session Setup
 
-Run `get_organization_details` as a pre-flight check at session start. Cache the org details and schema once — never re-query per command.
+Run `get_organization_details` once before the first query in a task. Cache the org details and schema once — never re-query per command.
 
 ## User Context
 

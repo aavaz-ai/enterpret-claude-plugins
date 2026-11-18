@@ -2,8 +2,8 @@
 name: evidence-synthesis
 description: >
   How to synthesize customer evidence from KG data into actionable narrative.
-  Auto-invoked when producing evidence sections, selecting quotes, sizing
-  problems, assessing impact, or writing insight summaries. Core rule:
+  Use only for results from the Enterpret Wisdom Knowledge Graph: evidence
+  sections, quotes, problem sizing, impact and insight summaries. Core rule:
   synthesize, never dump. Value is narrative, not retrieval.
 version: 5.0.0
 ---

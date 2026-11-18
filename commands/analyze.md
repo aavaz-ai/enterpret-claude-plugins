@@ -1,5 +1,5 @@
 ---
-description: "Deep analysis of a topic — volume trends, sentiment, theme breakdown, patterns, and evidence. Add --rootcause for severity assessment and hypothesis clustering."
+description: "Deep analysis of customer feedback on a topic from Enterpret — volume trends, sentiment, theme breakdown, patterns, and evidence. Add --rootcause for severity assessment and hypothesis clustering."
 argument-hint: "[topic] [--rootcause]"
 ---
 
@@ -11,10 +11,9 @@ With `--rootcause`, the same queries power a **structured root cause analysis** 
 
 ## Pre-Flight
 
-1. Check if `context/organization.json` exists. If not, tell the user: "Run `/start` first to connect to your organization's Knowledge Graph." Stop.
-2. Read `context/organization.json` for org name, slug, and `citationBaseUrl`.
-3. Call `get_organization_details` from the `enterpret-wisdom-mcp` MCP server as a connectivity check. If it fails with an auth error, tell the user to run `/start` and stop.
-4. Read `.claude/enterpret-customer-insights.local.md` if it exists for user preferences (role, focus, output style).
+1. Call `get_organization_details` from the `enterpret-wisdom-mcp` MCP server as a connectivity check. If it fails with an auth error, tell the user to run `/start` and stop.
+2. Read `context/organization.json` for org name, slug, and `citationBaseUrl`. If it doesn't exist, use the `name`, `slug` and `dashboard_link` from `get_organization_details`, with `dashboard_link` followed by `record/` as the citation base URL. Do not ask the user to run `/start` for this.
+3. Read `.claude/enterpret-customer-insights.local.md` if it exists for user preferences (role, focus, output style).
 
 ## Mode Detection
 
