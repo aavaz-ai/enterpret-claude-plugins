@@ -9,7 +9,7 @@ Quick lookup of customer feedback on a topic. Fast, focused, 1-2 queries max.
 
 ## Setup
 
-1. Read `context/organization.json` for `citationBaseUrl` and org name. If it doesn't exist, tell the user to run `/start` and stop.
+1. Read `context/organization.json` for `citationBaseUrl` and org name. If it doesn't exist, call `get_organization_details` from the `enterpret-wisdom-mcp` MCP server and use the `name`, `slug` and `dashboard_link` from `get_organization_details`, with `dashboard_link` followed by `record/` as the citation base URL. Do not ask the user to run `/start` for this.
 2. If the user provided no topic, ask: "What topic should I look into?"
 
 ## Execution

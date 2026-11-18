@@ -4,7 +4,8 @@ description: >
   Guides Claude through the 4-phase report workflow (Scope → Query → Draft → Final)
   and produces output in multiple formats (docx, pptx, html) with dynamic branding.
   Loads brand tokens from custom.json (if exists) or enterpret.json default.
-  Auto-loads for any report-generating command.
+  Use only for reports built from Enterpret customer feedback data, through this
+  plugin's commands. Not for other reports or documents.
 version: 5.0.0
 ---
 
@@ -24,6 +25,7 @@ Before generating any output, load brand tokens:
 4. **Resolve template variables:**
    - `{ORG_NAME}` → `context/organization.json` → `name`
    - `{ORG_SLUG}` → `context/organization.json` → `slug`
+   - If `context/organization.json` doesn't exist, take both from `get_organization_details`, as the `wisdom-kg` skill describes
    - Apply to all brand fields: `name`, `footer.dashboardUrl`, `citations.baseUrl`, etc.
 
 The resolved brand object is referred to as `BRAND` throughout all format-specific reference files.

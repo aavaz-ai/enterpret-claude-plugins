@@ -20,9 +20,9 @@ claude plugin install enterpret-customer-insights@enterpret-claude-plugins
 2. Paste: `https://github.com/aavaz-ai/enterpret-claude-plugins`
 3. Browse the marketplace and install **Enterpret Customer Insights**
 
-### First-Time Setup
+### Optional Setup
 
-After installing, start a new Claude session and run:
+Commands work right after install. To save your profile and preferences, start a new Claude session and run:
 
 ```
 /start
@@ -34,7 +34,7 @@ This connects to Enterpret, discovers your organization's data, and sets up your
 
 | Command | What It Does |
 |---------|-------------|
-| `/start` | First-time setup — connect, discover data, set up profile |
+| `/start` | Optional setup — connect, discover data, set up profile |
 | `/find [topic]` | Quick lookup — themes, sentiment, quotes |
 | `/analyze [topic]` | Deep analysis — trends, patterns, root causes (`--rootcause` for severity triage) |
 | `/explore [category?]` | Browse your feedback taxonomy interactively |
@@ -43,11 +43,11 @@ This connects to Enterpret, discovers your organization's data, and sets up your
 
 ## How It Works
 
-This plugin connects to your organization's **Wisdom Knowledge Graph** via the Enterpret MCP server. When you run `/start`, it:
+This plugin connects to your organization's **Wisdom Knowledge Graph** via the Enterpret MCP server. Commands load your organization's details themselves. When you run `/start`, it also:
 
 1. Authenticates via OAuth (CoWork handles this automatically)
 2. Discovers your organization's taxonomy and feedback structure
-3. Saves context for all future commands
+3. Saves context and your profile (in CoWork, saved context lasts for that chat only)
 
 All queries run against your live feedback data. Every insight includes citation links back to the Enterpret dashboard.
 
@@ -62,7 +62,7 @@ The plugin includes specialized knowledge modules:
 
 ## Agents
 
-- **wisdom-expert** — General-purpose feedback research (auto-triggers on natural language questions)
+- **wisdom-expert** — General-purpose feedback research (used when you ask about customer feedback)
 - **report-builder** — Isolated context for long report generation
 
 ## Configuration

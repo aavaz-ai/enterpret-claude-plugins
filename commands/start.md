@@ -1,5 +1,6 @@
 ---
-description: "First-time setup — connect to the Wisdom Knowledge Graph, discover your data landscape, set up your profile, and explore your Adaptive Taxonomy."
+description: "Optional setup — connect to the Wisdom Knowledge Graph, discover your data landscape, set up your profile, and explore your Adaptive Taxonomy. Commands work without it."
+disable-model-invocation: true
 ---
 
 # /start

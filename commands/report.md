@@ -1,5 +1,5 @@
 ---
-description: "Generate a report — weekly memo, account brief, executive summary, or branded document. Auto-detects mode from input or presents archetype menu."
+description: "Generate a customer feedback report from Enterpret — weekly memo, account brief, executive summary, or branded document. Auto-detects mode from input or presents archetype menu."
 argument-hint: "[weekly | account name | exec | theme deep-dive | sentiment | custom]"
 ---
 
@@ -9,10 +9,9 @@ You are generating a **customer intelligence report**. This command auto-detects
 
 ## Pre-Flight
 
-1. Check if `context/organization.json` exists. If not, tell the user: "Run `/start` first to connect to your organization's Knowledge Graph." Stop.
-2. Call `get_organization_details` from the `enterpret-wisdom-mcp` MCP server.
-3. If it fails with an auth error, tell the user to run `/start` and stop.
-4. If successful, read `context/organization.json` for org name, slug, and citation base URL.
+1. Call `get_organization_details` from the `enterpret-wisdom-mcp` MCP server.
+2. If it fails with an auth error, tell the user to run `/start` and stop.
+3. If successful, read `context/organization.json` for org name, slug, and citation base URL. If it doesn't exist, use the `name`, `slug` and `dashboard_link` from `get_organization_details`, with `dashboard_link` followed by `record/` as the citation base URL. Do not ask the user to run `/start` for this.
 
 ## Skills (reference during execution, not upfront)
 
@@ -457,7 +456,7 @@ Each `generateChart()` call returns a PNG buffer or `null` on failure. Charts ne
 **Step 3 — Build Document:**
 
 1. Load brand tokens: check for `brand/custom.json` first, fall back to `brand/enterpret.json`
-2. Resolve `{ORG_NAME}` and `{ORG_SLUG}` template vars from `context/organization.json`
+2. Resolve `{ORG_NAME}` and `{ORG_SLUG}` template vars from the org details loaded in Pre-Flight
 3. Generate output in chosen format(s) using the report-engine skill
 4. Embed charts above their respective tables — if chart buffer is `null`, skip silently
 5. Include header, footer with branding, page numbers

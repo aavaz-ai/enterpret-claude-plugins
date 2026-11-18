@@ -1,6 +1,7 @@
 ---
 description: "Build a recurring customer feedback digest — choose what matters, preview it, then deliver on a schedule to Slack, email, or wherever your team reads it."
 argument-hint: "[setup | run | preview | config]"
+disable-model-invocation: true
 ---
 
 # /digest
@@ -10,9 +11,8 @@ Knowledge Graph. Interactive setup on first run, headless execution for scheduli
 
 ## Pre-Flight
 
-1. Check if `context/organization.json` exists. If not, tell the user to run `/start` first. Stop.
-2. Call `get_organization_details` from the `enterpret-wisdom-mcp` MCP server. If auth fails, tell the user to run `/start`. Stop.
-3. Read `context/organization.json` for org name, slug, and citation base URL.
+1. Call `get_organization_details` from the `enterpret-wisdom-mcp` MCP server. If auth fails, tell the user to run `/start`. Stop.
+2. Read `context/organization.json` for org name, slug, and citation base URL. If it doesn't exist, use the `name`, `slug` and `dashboard_link` from `get_organization_details`, with `dashboard_link` followed by `record/` as the citation base URL. Do not ask the user to run `/start` for this.
 
 ## Skills (reference during execution, not upfront)
 
