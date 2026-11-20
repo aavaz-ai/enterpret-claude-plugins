@@ -8,13 +8,13 @@
     {
       "name": "enterpret-customer-insights",
       "source": "./",
-      "description": "Customer intelligence powered by Enterpret's Wisdom Knowledge Graph. Query feedback, analyze patterns, investigate root causes, and generate branded reports.",
-      "version": "6.2.0",
+      "description": "Deprecated and no longer maintained. Customer intelligence powered by Enterpret's Wisdom Knowledge Graph. Query feedback, analyze patterns, investigate root causes, and generate branded reports.",
+      "version": "6.2.1",
       "keywords": ["customer-feedback", "voice-of-customer", "product-management", "enterpret"]
     }
   ],
   "metadata": {
-    "description": "Official Enterpret plugins for Claude — customer intelligence, feedback analysis, and branded reporting.",
-    "version": "1.0.0"
+    "description": "Deprecated and no longer maintained.",
+    "version": "1.0.1"
   }
 }

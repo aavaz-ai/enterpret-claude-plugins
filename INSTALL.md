@@ -1,5 +1,8 @@
 # Enterpret Customer Insights — Installation Guide
 
+> [!WARNING]
+> **This plugin is deprecated and is no longer maintained.** We recommend that you remove it. An official Enterpret plugin is coming soon.
+
 Query customer feedback, analyze patterns, investigate root causes, and generate branded reports — powered by your Wisdom Knowledge Graph.
 
 ---

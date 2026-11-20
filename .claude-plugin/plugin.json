@@ -1,7 +1,7 @@
 {
   "name": "enterpret-customer-insights",
-  "version": "6.2.0",
-  "description": "Customer intelligence powered by Enterpret's Wisdom Knowledge Graph. Query feedback, analyze patterns, investigate root causes, generate branded reports, and deliver scheduled Slack digests.",
+  "version": "6.2.1",
+  "description": "Deprecated and no longer maintained. Customer intelligence powered by Enterpret's Wisdom Knowledge Graph. Query feedback, analyze patterns, investigate root causes, generate branded reports, and deliver scheduled Slack digests.",
   "author": {
     "name": "Enterpret"
   },

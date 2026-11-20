@@ -1,5 +1,8 @@
 # Enterpret Customer Insights
 
+> [!WARNING]
+> **This plugin is deprecated and is no longer maintained.** We recommend that you remove it. An official Enterpret plugin is coming soon.
+
 Customer intelligence powered by Enterpret's Wisdom Knowledge Graph. Query feedback, analyze patterns, investigate root causes, generate branded reports, and deliver scheduled feedback digests — all from Claude.
 
 ## Install
