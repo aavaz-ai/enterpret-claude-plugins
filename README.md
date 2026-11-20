@@ -1,33 +1,7 @@
 # Enterpret Customer Insights
 
 > [!WARNING]
-> **This plugin is deprecated.** Enterpret no longer maintains it and does not fix problems in it.
->
-> - Do not install this plugin.
-> - If you installed it, remove it. See [Remove the plugin](#remove-the-plugin).
-> - To use your Enterpret feedback in Claude, connect the [Enterpret MCP Server](https://helpcenter.enterpret.com/article/enterpret-mcp-server).
-> - An official Enterpret plugin is in preparation.
-
-## Remove the plugin
-
-### Claude Code CLI
-
-```bash
-claude plugin uninstall enterpret-customer-insights@enterpret-claude-plugins
-```
-
-```bash
-claude plugin marketplace remove enterpret-claude-plugins
-```
-
-### Claude CoWork (Desktop App)
-
-1. Open Settings > Plugins.
-2. Remove **Enterpret Customer Insights**.
-
-If your organization admin added the plugin for your team, the admin removes it in Organization settings > Plugins & skills.
-
----
+> **This plugin is deprecated and is no longer maintained.** We recommend that you remove it. An official Enterpret plugin is coming soon.
 
 Customer intelligence powered by Enterpret's Wisdom Knowledge Graph. Query feedback, analyze patterns, investigate root causes, generate branded reports, and deliver scheduled feedback digests — all from Claude.
 

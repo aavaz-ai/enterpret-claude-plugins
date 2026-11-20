@@ -1,11 +1,7 @@
 # Enterpret Customer Insights — Installation Guide
 
 > [!WARNING]
-> **This plugin is deprecated.** Enterpret no longer maintains it and does not fix problems in it.
->
-> - Do not install this plugin.
-> - If you installed it, remove it. See [Remove the plugin](README.md#remove-the-plugin).
-> - To use your Enterpret feedback in Claude, connect the [Enterpret MCP Server](https://helpcenter.enterpret.com/article/enterpret-mcp-server).
+> **This plugin is deprecated and is no longer maintained.** We recommend that you remove it. An official Enterpret plugin is coming soon.
 
 Query customer feedback, analyze patterns, investigate root causes, and generate branded reports — powered by your Wisdom Knowledge Graph.
 

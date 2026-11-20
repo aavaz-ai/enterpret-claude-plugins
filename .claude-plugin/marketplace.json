@@ -8,13 +8,13 @@
     {
       "name": "enterpret-customer-insights",
       "source": "./",
-      "description": "DEPRECATED. Enterpret no longer maintains this plugin. Remove it. Customer intelligence powered by Enterpret's Wisdom Knowledge Graph. Query feedback, analyze patterns, investigate root causes, and generate branded reports.",
+      "description": "Deprecated and no longer maintained. Customer intelligence powered by Enterpret's Wisdom Knowledge Graph. Query feedback, analyze patterns, investigate root causes, and generate branded reports.",
       "version": "6.2.1",
       "keywords": ["customer-feedback", "voice-of-customer", "product-management", "enterpret"]
     }
   ],
   "metadata": {
-    "description": "DEPRECATED. Enterpret no longer maintains these plugins.",
+    "description": "Deprecated and no longer maintained.",
     "version": "1.0.1"
   }
 }
